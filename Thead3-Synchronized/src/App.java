@@ -1,4 +1,22 @@
 //Thread Synchronization(Synchronized word)
+/*
+Two things:
+
+First, it is not possible for two invocations of synchronized methods on the same object to interleave. 
+When one thread is executing a synchronized method for an object, all other threads that invoke synchronized methods 
+for the same object block (suspend execution) until the first thread is done with the object.
+
+Second, when a synchronized method exits, it automatically establishes a happens-before relationship with 
+any subsequent invocation of a synchronized method for the same object. This guarantees that changes to the 
+state of the object are visible to all threads.
+
+Synchronized methods enable a simple strategy for preventing thread interference and memory consistency errors: 
+if an object is visible to more than one thread, all reads or writes to that object's variables are done through 
+ynchronized methods. (An important exception: final fields, which cannot be modified after the object is constructed, 
+can be safely read through non-synchronized methods, once the object is constructed).
+
+*/
+
 public class App {
 	private int count = 0;
 
