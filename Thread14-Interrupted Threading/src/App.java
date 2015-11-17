@@ -12,6 +12,13 @@ public class App {
 		System.out.println("Starting...");
 
 		ExecutorService executor = Executors.newCachedThreadPool();
+		/*
+		 * Once a computation has completed, the computation cannot be
+		 * cancelled. If you would like to use a Future for the sake of
+		 * cancellability but not provide a usable result, you can declare types
+		 * of the form Future<?> and return null as a result of the underlying
+		 * task.
+		 */
 		Future<?> fu = executor.submit(new Callable<Void>() {
 
 			@Override
